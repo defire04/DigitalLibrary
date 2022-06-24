@@ -30,7 +30,7 @@ public class PersonValidator implements Validator {
         if (personDao.show(person.getFullName()).isPresent()) {
             Person returnedPerson = personDao.show(person.getFullName()).get();
             if (returnedPerson.getId() != person.getId()) {
-                errors.rejectValue("fullName", "", "This fullName is already taken");
+                errors.rejectValue("fullName", "", "Пользователь с таким именем уже существует");
             }
         }
     }
